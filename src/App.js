@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./components/Navbar";
 import BookList from "./components/BookList";
+import BookForm from "./components/BookForm";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +14,7 @@ class App extends Component {
       <div className="App">
         <Navbar books={this.state.books} />
         <BookList books={this.state.books} />
+        <BookForm />
       </div>
     );
   }
