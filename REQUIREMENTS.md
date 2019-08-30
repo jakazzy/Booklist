@@ -2,7 +2,7 @@
 
 ## REQUIREMENTS.md
 
-Booklist App - Helps a user track their reading requirements(or list)
+Booklist App - Helps a user track their reading list
 
 1. It displays number of books to be read.
 
