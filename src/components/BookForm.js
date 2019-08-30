@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export class BookForm extends Component {
-    constructor(props)
-    render() {
-        return (
-            <div>
-                
-            </div>
-        )
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return <div></div>;
+  }
 }
 
-export default BookForm
+export default BookForm;
