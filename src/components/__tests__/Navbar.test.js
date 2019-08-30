@@ -8,7 +8,7 @@ import Navbar from "../Navbar";
 configure({ adapter: new Adapter() });
 expect.addSnapshotSerializer(createSerializer({ mode: "deep" }));
 
-describe("Header component", () => {
+describe("Navbar component", () => {
   let wrapper;
 
   beforeEach(() => {
