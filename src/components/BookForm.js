@@ -42,7 +42,7 @@ export class BookForm extends Component {
           onChange={this.handleChange}
           required
         />
-        <input type="submit" value="add book" />
+        <button type="submit">add book</button>
       </form>
     );
   }

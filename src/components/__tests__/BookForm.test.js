@@ -28,26 +28,18 @@ describe("Header component", () => {
   it("should handle  authors name correctly onChange", function() {
     const component = mount(<BookForm />);
     const input = component.find("input").at(1);
-    // console.log(input.debug());
+
     input.instance().value = "Ama Bebrese";
     input.simulate("change");
     expect(component.state().author).toEqual("Ama Bebrese");
   });
 
-  it("should submit book title successfully", () => {
+  it("should update form submitted state with button click", () => {
     const component = mount(<BookForm />);
-    const form = component.find("form");
-    console.log(
-      form
-        .find("value")
-        .at(0)
-        .debug()
-    );
-    // const title = (form.find("value").at(0).instance.value = "Over the sea");
-    // const author = (form.find("value").at(1).instance.value = "Over the sea");
-    // form.instance().value = "Ama Bebrese";
-    // form.simulate("submit");
-    // expect(component.state().title.length).toEqual(1);
+    component.find("button").simulate("click");
+    // console.log(component.debug());
+    component.instance().setState({ author: "Ama", title: "Happy day" });
+    expect(component.state()).toEqual({ author: "Ama", title: "Happy day" });
+    component.unmount();
   });
-  it("should submit author's name successfully", () => {});
 });
