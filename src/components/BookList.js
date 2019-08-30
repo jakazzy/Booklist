@@ -13,10 +13,15 @@
 
 import React from "react";
 
-const BookList = ({ books }) => {
-  const bookList = books.map(book => {
+const BookList = ({ books, deleteBook }) => {
+  const bookList = books.map((book, index) => {
     return (
-      <li onClick={() => {}} key={book.id}>
+      <li
+        onClick={() => {
+          deleteBook(book.id);
+        }}
+        key={index}
+      >
         <div className="title">{book.title}</div>
         <div className="author">{book.author}</div>
       </li>

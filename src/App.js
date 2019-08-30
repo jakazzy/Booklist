@@ -9,12 +9,29 @@ class App extends Component {
       books: [{ title: "A warrior", author: "Mamle", id: 1 }]
     };
   }
+
+  addBook = book => {
+    let books = [...this.state.books, book];
+    book.id = books.indexOf(book);
+    this.setState({
+      books
+    });
+  };
+
+  deleteBook = id => {
+    let books = this.state.books.filter(book => {
+      return book.id !== id;
+    });
+    this.setState({
+      books
+    });
+  };
   render() {
     return (
       <div className="App">
         <Navbar books={this.state.books} />
-        <BookList books={this.state.books} />
-        <BookForm />
+        <BookList books={this.state.books} deleteBook={this.deleteBook} />
+        <BookForm addBook={this.addBook} />
       </div>
     );
   }
