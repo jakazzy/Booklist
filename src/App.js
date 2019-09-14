@@ -1,41 +1,37 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import BookList from "./components/BookList";
 import BookForm from "./components/BookForm";
-// import axios from "axios";
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: [{ title: "A warrior", author: "Mamle", id: 0 }]
-    };
-  }
 
-  addBook = book => {
-    let books = [...this.state.books, book];
+const App = () => {
+  const [books, setBooks] = useState([
+    { title: "A warrior", author: "Mamle", id: 0 }
+  ]);
+
+  const addBook = book => {
+    // eslint-disable-next-line no-use-before-define
+    let books = [...books, book];
     book.id = books.indexOf(book);
-    this.setState({
+    setBooks({
       books
     });
   };
 
-  deleteBook = id => {
-    let books = this.state.books.filter(book => {
+  const deleteBook = id => {
+    let books = this.books.filter(book => {
       return book.id !== id;
     });
-    this.setState({
+    this.setBooks({
       books
     });
   };
-  render() {
-    return (
-      <div className="App">
-        <Navbar books={this.state.books} />
-        <BookList books={this.state.books} deleteBook={this.deleteBook} />
-        <BookForm addBook={this.addBook} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="App">
+      <Navbar books={books} />
+      <BookList books={books} deleteBook={deleteBook} />
+      <BookForm addBook={addBook} />
+    </div>
+  );
+};
 
 export default App;
