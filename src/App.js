@@ -11,9 +11,6 @@ class App extends Component {
     };
   }
 
-  // async componentDidMount() {
-  //   let response = await axios.get("http://localhost:3000/data/books.json");
-  // }
   addBook = book => {
     let books = [...this.state.books, book];
     book.id = books.indexOf(book);
