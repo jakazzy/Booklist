@@ -13,7 +13,8 @@ const BookForm = ({ addBook }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addBook(this.state);
+    console.log(values);
+    addBook(values);
     setValues({
       title: "",
       author: ""
