@@ -1,19 +1,7 @@
-// import React from "react";
-
-// const BookDetails = ({ book }) => {
-//   return (
-//     <li onClick={() => {}} key={book.id}>
-//       <div className="title">{book.title}</div>
-//       <div className="author">{book.author}</div>
-//     </li>
-//   );
-// };
-
-// export default BookDetails;
-
 import React from "react";
 
-const BookList = ({ books, deleteBook }) => {
+const BookList = props => {
+  const { books, deleteBook } = props;
   const bookList = books.map((book, index) => {
     return (
       <li

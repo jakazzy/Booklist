@@ -5,25 +5,20 @@ import BookForm from "./components/BookForm";
 
 const App = () => {
   const [books, setBooks] = useState([
-    { title: "A warrior", author: "Mamle", id: 0 }
+    { title: "A warrior", author: "Mamle", id: 0 },
+    { title: "A holy grail", author: "Nutifa", id: 1 }
   ]);
 
   const addBook = book => {
-    // eslint-disable-next-line no-use-before-define
-    let books = [...books, book];
     book.id = books.indexOf(book);
-    setBooks({
-      books
-    });
+    setBooks([...books, book]);
   };
 
   const deleteBook = id => {
-    let books = this.books.filter(book => {
+    let allBooks = books.filter(book => {
       return book.id !== id;
     });
-    this.setBooks({
-      books
-    });
+    setBooks(allBooks);
   };
   return (
     <div className="App">
