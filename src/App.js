@@ -9,20 +9,19 @@ const App = () => {
   ]);
 
   const addBook = book => {
-    // eslint-disable-next-line no-use-before-define
-    let books = [...books, book];
+    let allBooks = [...books, book];
     book.id = books.indexOf(book);
     setBooks({
-      books
+      books: allBooks
     });
   };
 
   const deleteBook = id => {
-    let books = this.books.filter(book => {
+    let allBooks = books.filter(book => {
       return book.id !== id;
     });
-    this.setBooks({
-      books
+    setBooks({
+      books: allBooks
     });
   };
   return (

@@ -14,6 +14,7 @@
 import React from "react";
 
 const BookList = ({ books, deleteBook }) => {
+  console.log(books, "here you go");
   const bookList = books.map((book, index) => {
     return (
       <li
