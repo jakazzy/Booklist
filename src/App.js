@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import BookList from "./components/BookList";
 import BookForm from "./components/BookForm";
+import BookContextProvider from "./BookContext";
 
 const App = () => {
   const [books, setBooks] = useState([
@@ -22,9 +23,11 @@ const App = () => {
   };
   return (
     <div className="App">
-      <Navbar books={books} />
-      <BookList books={books} deleteBook={deleteBook} />
-      <BookForm addBook={addBook} />
+      <BookContextProvider>
+        <Navbar books={books} />
+        <BookList books={books} deleteBook={deleteBook} />
+        <BookForm addBook={addBook} />
+      </BookContextProvider>
     </div>
   );
 };

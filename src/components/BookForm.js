@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { BookContext } from "../BookContext";
 
-const BookForm = ({ addBook }) => {
+const BookForm = () => {
+  const { dispatch } = useContext(BookContext);
   const [values, setValues] = useState({
     title: "",
     author: ""
@@ -13,8 +15,8 @@ const BookForm = ({ addBook }) => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(values);
-    addBook(values);
+    //addBook(values);
+    dispatch({ type: "ADD_BOOK", book: values });
     setValues({
       title: "",
       author: ""
