@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import { BookContext } from "../BookContext";
 
 const BookList = props => {
-  const { books, deleteBook } = props;
+  const { books, deleteBook } = useContext(BookContext);
   const bookList = books.map((book, index) => {
     return (
       <li
