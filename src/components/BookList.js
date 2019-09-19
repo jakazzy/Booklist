@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import { BookContext } from "../BookContext";
 
 const BookList = props => {
-  const { books, deleteBook } = useContext(BookContext);
+  const { books, dispatch } = useContext(BookContext);
   const bookList = books.map((book, index) => {
     return (
       <li
         onClick={() => {
-          deleteBook(book.id);
+          dispatch({ type: "REMOVE_BOOK", id: book.id });
         }}
         key={index}
       >
